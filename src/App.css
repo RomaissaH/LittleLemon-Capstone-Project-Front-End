@@ -439,6 +439,14 @@ footer img {
 	color: #FFFFFF;
 }
 
+.submit:disabled,
+.submit[disabled] {
+  background-color: #EDEFEE;
+  border-color: #EDEFEE;
+  color: #ADAFAE;
+  cursor: not-allowed;
+}
+
 .reserve-btn {
 	margin-top: 1em;
 	border: 2px solid #f4ce14;

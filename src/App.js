@@ -3,12 +3,12 @@ import React from "react";
 import { Route, Routes } from "react-router-dom"
 import Header from './components/Header';
 import ScrollToTop from './components/ScrollToTop';
-import HomePage from './components/HomePage';
+import HomePage from './pages/HomePage';
 import About from './components/About';
-import BookingPage from './components/BookingPage';
-import ConfirmedBooking from './components/ConfirmedBooking';
-import ComingSoon from './components/ComingSoon';
-import NotFound from './components/NotFound';
+import BookingPage from './pages/BookingPage';
+import ConfirmedBooking from './pages/ConfirmedBooking';
+import ComingSoon from './pages/ComingSoon';
+import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 
 

@@ -62,26 +62,38 @@ Here is an overview of the project structure:
 ```bash
 LittleLemon-Capstone-Project-Front-End/
 ├── public/
+│   ├── images
 │   ├── index.html
+│   ├── logo.png
 │   └── ...
 ├── src/
 │   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── Footer.jsx
-│   │   ├── ReservationForm.jsx
-│   │   └── ...
+│   │   ├── About.js
+│   │   ├── BookingForm.js
+│   │   ├── Footer.js
+│   │   ├── BookingForm.js
+│   │   ├── Header.js
+│   │   ├── Hero.js
+│   │   ├── Highlights.js
+│   │   ├── Nav.js
+│   │   ├── ScrollToTop.js
+│   │   └── Testimonials.js
 │   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── Menu.jsx
-│   │   ├── Reserve.jsx
-│   │   ├── Contact.jsx
-│   │   └── ...
-│   ├── App.jsx
+│   │   ├── BookingPage.js
+│   │   ├── ComongSoon.js
+│   │   ├── ConfirmedBooking.js
+│   │   ├── HomePage.js
+│   │   └── NotFound.js
+│   ├── API.js
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
 │   ├── index.js
 │   └── ...
 ├── .gitignore
-├── README.md
+├── package-lock.json
 ├── package.json
+├── README.md
 └── ...
 ```
 
