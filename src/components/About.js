@@ -7,9 +7,6 @@ function About() {
           <div className="restaurant-desc">
             <h1 className="desc-title">Little Lemon</h1>
             <h2 className="desc-subtitle">Chicago</h2>
-            {/*<p className="desc desc-text">We are a family owned Mediterranean restaurant, <br/>
-              focused on traditional recipes served with a modern twist.
-            </p>*/}
             <p className="desc-text">
               Based in Chicago, Illinois, Little Lemon is a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist. <br/>
               The chefs draw inspiration from Italian, Greek, and Turkish culture and have a menu of 12-15 items that they rotate seasonally. <br/>

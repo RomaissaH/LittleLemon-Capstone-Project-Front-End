@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 function Hero() {
     return (
@@ -14,9 +15,11 @@ function Hero() {
                             recipes served with a modern <br/>
                             twist. <br/>
                         </p>
-                        <button className="reserve-btn btn">
-                            Reserve a Table
-                        </button>
+                        <Link style={{ margin:'0px', padding:'0px', textAlign:'left' }} to="/booking">
+                            <button className="reserve-btn btn" aria-label="Reserve a table button">
+                                Reserve a Table
+                            </button>
+                        </Link>
                     </div>
                     <div className="img-wrapper">
                         <img className="hero-img" src="../images/restaurant_food.jpg" alt="hero"/>

@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Capstone project for the Meta Front-End Developer Professional Certificate
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# Little Lemon Restaurant
 
-### `npm start`
+Welcome to the Little Lemon Restaurant project! This project is a capstone assignment where we create a restaurant web page with a "Reserve a Table" functionality using React.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Table of Contents
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Testing](#testing)
+- [Technologies Used](#technologies-used)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Introduction
 
-### `npm run build`
+Little Lemon Restaurant is a web application built using React. The primary feature of the application is the "Reserve a Table" functionality, which allows users to select a date and time for their reservation.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Home Page**: Introduction to the restaurant with a welcoming message and overview.
+- **Menu Page**: Displays the restaurant's menu items. (Not developpeed)
+- **Reserve a Table**: Allows users to select a date and time for their reservation.
+- **Order Online**: Allows users to order a delivery. (Not developpeed)
+- **Login**: Allows users to login to the website. (Not developpeed)
+- **Responsive Design**: Ensures the application works well on different devices.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+To set up the project locally, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/RomaissaH/LittleLemon-Capstone-Project-Front-End.git
+    cd LittleLemon-Capstone-Project-Front-End
+    ```
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To start the development server, run:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+This will start the application at http://localhost:3000.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Here is an overview of the project structure:
 
-### Code Splitting
+```bash
+LittleLemon-Capstone-Project-Front-End/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   ├── ReservationForm.jsx
+│   │   └── ...
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Menu.jsx
+│   │   ├── Reserve.jsx
+│   │   ├── Contact.jsx
+│   │   └── ...
+│   ├── App.jsx
+│   ├── index.js
+│   └── ...
+├── .gitignore
+├── README.md
+├── package.json
+└── ...
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Testing
 
-### Analyzing the Bundle Size
+To run the tests for the application, use:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm test
+```
+This will launch the test runner in the interactive watch mode.
 
-### Making a Progressive Web App
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **React**: A JavaScript library for building user interfaces.
+- **React Router**: For handling routing.
+- **React Hooks**: For managing state and handling user interactions.
+- **React Testing Library**: For testing React components.
+- **Jest**: For running tests.
+- **HTML**: For structuring the web pages.
+- **CSS**: For styling the application.

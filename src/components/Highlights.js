@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { MdDeliveryDining } from 'react-icons/md';
 
@@ -7,9 +8,11 @@ function Highlights() {
             <article className="menu">
                 <div className="menu-desc">
                     <h1 className="menu-title">This weeks specials!</h1>
-                    <button className="btn">
-                        Online Menu
-                    </button>
+                    <Link style={{ margin:'0px', padding:'0px', textAlign:'left' }} to="/menu">
+                        <button className="btn" aria-label="Online menu button">
+                            Online Menu
+                        </button>
+                    </Link>
                 </div>
                 <div className="cards">
                     <div className="card">
@@ -26,7 +29,7 @@ function Highlights() {
                             </p>
                         </div>
                         <div className="delivery">
-                            <a href="#" className="delivery-item">Order a delivery</a>
+                            <Link to="/order-online" className="delivery-item">Order a delivery</Link>
                             <IconContext.Provider value={{ color: "#333333", size: "30px" }}>
                                 <MdDeliveryDining />
                             </IconContext.Provider>
@@ -46,7 +49,7 @@ function Highlights() {
                             </p>
                         </div>
                         <div className="delivery">
-                            <a href="#" className="delivery-item">Order a delivery</a>
+                            <Link to="/order-online" className="delivery-item">Order a delivery</Link>
                             <IconContext.Provider value={{ color: "#333333", size: "30px" }}>
                                 <MdDeliveryDining />
                             </IconContext.Provider>
@@ -54,7 +57,7 @@ function Highlights() {
                     </div>
 
                     <div className="card">
-                        <img className="menu-img" src="/images/lemon dessert.jpg" alt="lemon-dessert"/>
+                        <img className="menu-img" src="/images/lemon dessert.jpg" alt="lemon dessert"/>
                         <div className="name-price">
                             <h2 className="item-name">Lemon Dessert</h2>
                             <p className="item-price">$5.00</p>
@@ -67,7 +70,7 @@ function Highlights() {
                             </p>
                         </div>
                         <div className="delivery">
-                            <a href="#" className="delivery-item">Order a delivery</a>
+                            <Link to="/order-online" className="delivery-item">Order a delivery</Link>
                             <IconContext.Provider value={{ color: "#333333", className: "icon", size: "30px" }}>
                                 <MdDeliveryDining />
                             </IconContext.Provider>

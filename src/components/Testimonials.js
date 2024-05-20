@@ -8,18 +8,19 @@ function Testimonials() {
     return (
         <section>
             <article className="testimonials-parent">
-                <h1 className="testimonials-title">Testimonials</h1>
+                <h1 className="testimonials-title">What our customers are saying...</h1>
                 <div className="testimonials">
                     <div className="testimonial">
-                        <div className="rating">
-                            <p className="reviewer-rating">5/5</p>
-                            <IconContext.Provider value={{ color: "#EE9972" }}>
-                                {Array(5).fill(<Star />)}
-                            </IconContext.Provider>
-                        </div>
                         <div className="name">
                             <img className="reviewer-img" src="/images/user1.png" alt="profile"/>
                             <h2 className="reviewer-name">Alice Smith</h2>
+                        </div>
+                        <div className="rating">
+                            <IconContext.Provider value={{ color: "#F4CE14" }}>
+                                {Array.from({ length: 5 }, (_, index) => (
+                                    <Star key={index} />
+                                ))}
+                            </IconContext.Provider>
                         </div>
                         <div className="review-text">
                             <p>
@@ -31,15 +32,16 @@ function Testimonials() {
                     </div>
 
                     <div className="testimonial">
-                        <div className="rating">
-                            <p className="reviewer-rating">5/5</p>
-                            <IconContext.Provider value={{ color: "#EE9972" }}>
-                                {Array(5).fill(<Star />)}
-                            </IconContext.Provider>
-                        </div>
                         <div className="name">
                             <img className="reviewer-img" src="/images/user2.png" alt="profile"/>
                             <h2 className="reviewer-name">Bob Johnson</h2>
+                        </div>
+                        <div className="rating">
+                            <IconContext.Provider value={{ color: "#F4CE14" }}>
+                                {Array.from({ length: 5 }, (_, index) => (
+                                    <Star key={index} />
+                                ))}
+                            </IconContext.Provider>
                         </div>
                         <div className="review-text">
                             <p>
@@ -49,15 +51,16 @@ function Testimonials() {
                     </div>
 
                     <div className="testimonial">
-                        <div className="rating">
-                            <p className="reviewer-rating">5/5</p>
-                            <IconContext.Provider value={{ color: "#EE9972" }}>
-                                {Array(5).fill(<Star />)}
-                            </IconContext.Provider>
-                        </div>
                         <div className="name">
                             <img className="reviewer-img" src="/images/user3.png" alt="profile"/>
                             <h2 className="reviewer-name">Emily Williams</h2>
+                        </div>
+                        <div className="rating">
+                            <IconContext.Provider value={{ color: "#F4CE14" }}>
+                                {Array.from({ length: 5 }, (_, index) => (
+                                    <Star key={index} />
+                                ))}
+                            </IconContext.Provider>
                         </div>
                         <div className="review-text">
                             <p>
