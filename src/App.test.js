@@ -1,4 +1,4 @@
-/*import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import BookingForm from './components/BookingForm';
 
 
@@ -221,4 +221,4 @@ test(`Input is invalid when number of guests field's value is less than 1 or gra
   fireEvent.click(submitButton);
 
   expect(input).toBeInvalid();
-});*/
+});
