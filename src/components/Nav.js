@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import { useState } from 'react';
 import { IconContext } from "react-icons";
-import { FaRegTimesCircle, FaBars } from 'react-icons/fa';
+import { FaBars, FaXmark } from "react-icons/fa6";
+
 
 function Nav() {
 
@@ -12,9 +13,9 @@ function Nav() {
 
     return (
         <>
-            <IconContext.Provider value={{ color: "#333333" }}>
+            <IconContext.Provider value={{ color: "#495e57", size: '35px' }}>
                 <div className="mobile-nav" onClick={toggleNav}>
-                    {isOpen ? <FaRegTimesCircle /> : <FaBars />}
+                    {isOpen ? <FaXmark /> : <FaBars />}
                 </div>
             </IconContext.Provider>
 
