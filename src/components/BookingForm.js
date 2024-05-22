@@ -1,49 +1,83 @@
-import { useState } from "react"
+import { useState } from "react";
 
-function BookingForm({availableTimes, dispatch, submitForm}) {
+function BookingForm(props) {
 
-    const currentDate = new Date().toISOString().split("T")[0]
+
+    const currentDate = new Date().toISOString().split("T")[0];
+
+    const validateFirstName = (firstName) => {
+        return firstName !== "";
+    }
+
+    const validateLastName = (lastName) => {
+        return lastName !== "";
+    }
+    const validatePhoneNumber = (phone) => {
+        return /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/.test(phone);
+    };
+
+    const validateDate = (date) => {
+        return date >= currentDate;
+    };
+
+    const validateTime = (time) => {
+        return time !== "";
+    }
+
+    const validateGuests = (guests) => {
+        return guests >= 1 && guests <= 10;
+    };
 
     const [formData, setFormData] = useState({
-        firstName: "",
-        lastName: "",
-        contactNumber: "",
-        date: currentDate,
-        time: availableTimes[0],
-        noOfGuests: 1,
-        occasion: ""
-    })
+        firstName: { value: "", isTouched: false },
+        lastName: { value: "", isTouched: false },
+        contactNumber: { value: "", isTouched: false },
+        date: { value: currentDate, isTouched: false },
+        time: { value: props.availableTimes[0], isTouched: false },
+        noOfGuests: { value: 1, isTouched: false },
+        occasion: { value: "", isTouched: false }
+    });
+
+    const isFormValid = () => {
+        return (
+            validateFirstName(formData.firstName.value) &&
+            validateLastName(formData.lastName.value) &&
+            validatePhoneNumber(formData.contactNumber.value) &&
+            validateDate(formData.date.value) &&
+            validateTime(formData.time.value) &&
+            validateGuests(formData.noOfGuests.value)
+        );
+    };
 
     const handleFormChange = (event) => {
-      const { name, value } = event.target
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        [name]: value
-      }))
-    }
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          [name]: {
+            ...prevFormData[name],
+            value: value,
+            isTouched: true
+          }
+        }));
+    };
 
     const handleDateChange = async (event) => {
-      const { name, value } = event.target
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        [name]: value
-      }))
-     dispatch({ type: 'UPDATE_TIMES', payload: value })
-    }
+        const { name, value } = event.target
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          [name]: {
+            ...prevFormData[name],
+            value: value,
+            isTouched: true
+          }
+        }))
+        props.dispatch(value)
+    };
 
     const handleSubmit = (event) => {
       event.preventDefault()
-      /*alert(`
-      Reservation Details:
-      Name: ${formData.firstName} ${formData.lastName}
-      Phone Number: ${formData.contactNumber}
-      Date: ${formData.date}
-      Time: ${formData.time}
-      Number of Guests: ${formData.noOfGuests}
-      Occasion: ${formData.occasion ? formData.occasion : ''}
-      `);*/
-      submitForm(formData)
-    }
+      props.submitForm(formData)
+    };
 
     return (
         <main>
@@ -56,10 +90,16 @@ function BookingForm({availableTimes, dispatch, submitForm}) {
                     type="text"
                     id="first-name"
                     name="firstName"
-                    value={formData.firstName}
+                    value={formData.firstName.value}
                     onChange={handleFormChange}
+                    onBlur={handleFormChange}
                     required
                 />
+                {formData.firstName.isTouched && !validateFirstName(formData.firstName.value) ? (
+                <p style={{ color: "red", fontSize: "14px" }}>
+                    Please enter a valid name.
+                </p>
+                ) : null}
             </div>
 
             <div className="form-field">
@@ -68,10 +108,16 @@ function BookingForm({availableTimes, dispatch, submitForm}) {
                     type="text"
                     id="last-name"
                     name="lastName"
-                    value={formData.lastName}
+                    value={formData.lastName.value}
                     onChange={handleFormChange}
+                    onBlur={handleFormChange}
                     required
                 />
+                {formData.lastName.isTouched && !validateLastName(formData.lastName.value) ? (
+                <p style={{ color: "red", fontSize: "14px" }}>
+                    Please enter a valid name.
+                </p>
+                ) : null}
             </div>
 
             <div className="form-field">
@@ -81,11 +127,17 @@ function BookingForm({availableTimes, dispatch, submitForm}) {
                     id="contact-number"
                     name="contactNumber"
                     placeholder="123-456-7890"
-                    value={formData.contactNumber}
+                    value={formData.contactNumber.value}
                     onChange={handleFormChange}
+                    onBlur={handleFormChange}
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     required
                 />
+                {formData.contactNumber.isTouched && !validatePhoneNumber(formData.contactNumber.value) ? (
+                <p style={{ color: "red", fontSize: "14px" }}>
+                    Invalid phone number format. Please use ###-###-####.
+                </p>
+                ) : null}
             </div>
 
             <div className="form-field">
@@ -94,11 +146,16 @@ function BookingForm({availableTimes, dispatch, submitForm}) {
                     type="date"
                     id="res-date"
                     name="date"
-                    value={formData.date}
+                    value={formData.date.value}
                     onChange={handleDateChange}
                     required
                     min={currentDate}
                 />
+                {formData.date.isTouched && !validateDate(formData.date.value) ? (
+                <p style={{ color: "red", fontSize: "14px" }}>
+                    The selected date is in the past. Please choose a valid date for your reservation.
+                </p>
+            ) : null}
             </div>
 
             <div className="form-field">
@@ -106,10 +163,11 @@ function BookingForm({availableTimes, dispatch, submitForm}) {
                 <select
                     id="res-time"
                     name="time"
-                    value={formData.time}
+                    value={formData.time.value}
                     onChange={handleFormChange}
+                    onBlur={handleFormChange}
                     required>
-                    {availableTimes?.map(times =>
+                    {props.availableTimes.map(times =>
                         <option data-testid="booking-time-option" key={times}>
                             {times}
                         </option>
@@ -124,12 +182,18 @@ function BookingForm({availableTimes, dispatch, submitForm}) {
                     id="guests"
                     name="noOfGuests"
                     placeholder="1"
-                    value={formData.noOfGuests}
+                    value={formData.noOfGuests.value}
                     onChange={handleFormChange}
+                    onBlur={handleFormChange}
                     required
                     min="1"
                     max="10"
                 />
+                {formData.noOfGuests.isTouched && !validateGuests(formData.noOfGuests.value) ? (
+                <p style={{ color: "red", fontSize: "14px" }}>
+                    Please enter a number between 1 and 10.
+                </p>
+                ) : null}
             </div>
 
             <div className="form-field">
@@ -137,7 +201,7 @@ function BookingForm({availableTimes, dispatch, submitForm}) {
                 <select
                     id="occasion"
                     name="occasion"
-                    value={formData.occasion}
+                    value={formData.occasion.value}
                     onChange={handleFormChange}
                     >
                     <option label=" " data-testid="occasion-option"></option>
@@ -147,7 +211,7 @@ function BookingForm({availableTimes, dispatch, submitForm}) {
                 </select>
             </div>
 
-          <input className="submit" type="submit" value="Reserve" aria-label="Submit button"/>
+          <input className="submit" type="submit" value="Reserve" disabled={!isFormValid()} aria-label="Submit button"/>
       </form>
       </main>
     )
