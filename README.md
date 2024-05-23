@@ -71,7 +71,6 @@ LittleLemon-Capstone-Project-Front-End/
 │   │   ├── About.js
 │   │   ├── BookingForm.js
 │   │   ├── Footer.js
-│   │   ├── BookingForm.js
 │   │   ├── Header.js
 │   │   ├── Hero.js
 │   │   ├── Highlights.js
@@ -83,6 +82,7 @@ LittleLemon-Capstone-Project-Front-End/
 │   │   ├── ComongSoon.js
 │   │   ├── ConfirmedBooking.js
 │   │   ├── HomePage.js
+│   │   ├── Main.js
 │   │   └── NotFound.js
 │   ├── API.js
 │   ├── App.css
